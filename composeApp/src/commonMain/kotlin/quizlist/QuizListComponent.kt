@@ -1,0 +1,3 @@
+package quizlist
+
+interface QuizListComponent

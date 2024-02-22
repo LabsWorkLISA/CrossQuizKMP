@@ -1,0 +1,5 @@
+package quizsolve
+
+interface QuizSolveComponent {
+
+}
