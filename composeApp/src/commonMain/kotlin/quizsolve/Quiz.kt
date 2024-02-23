@@ -7,11 +7,13 @@ data class Quiz(
 
 sealed interface Question {
     val id: String
+    val questionNumber: String
     val questionText: String
     val answers: Answers
 
     data class Single(
         override val id: String,
+        override val questionNumber: String,
         override val questionText: String,
         override val answers: Answers,
         val correctAnswerId: Answer.Id,
@@ -19,6 +21,7 @@ sealed interface Question {
 
     data class Multiple(
         override val id: String,
+        override val questionNumber: String,
         override val questionText: String,
         override val answers: Answers,
         val correctAnswersId: List<Answer.Id>,

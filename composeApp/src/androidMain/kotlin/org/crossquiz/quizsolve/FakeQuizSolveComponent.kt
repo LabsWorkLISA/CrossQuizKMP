@@ -1,6 +1,5 @@
-package org.crossquiz
+package org.crossquiz.quizsolve
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,7 +9,6 @@ import quizsolve.Answers
 import quizsolve.Question
 import quizsolve.Quiz
 import quizsolve.QuizSolveComponent
-import quizsolve.QuizSolveScreen
 
 class FakeQuiz: QuizSolveComponent {
     override val currentQuiz: StateFlow<Quiz?>
@@ -48,6 +46,7 @@ class FakeQuiz: QuizSolveComponent {
                 ),
             ),
             correctAnswerId = Answer.Id("1"),
+            questionNumber = "2",
         ))
 
     override fun onNextButtonClick() = Unit
@@ -55,6 +54,6 @@ class FakeQuiz: QuizSolveComponent {
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-fun SignInUiPreview() {
+fun QuizSolveScreenPreview() {
     QuizSolveScreen(FakeQuiz())
 }
