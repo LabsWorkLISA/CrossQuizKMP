@@ -1,4 +1,0 @@
-com.plcoding.decomposesample.test.composeApp-androidTest-0 C:\Users\Admin\AndroidStudioProjects\CrossQuizKMP\composeApp\build\generated\res\resValues\androidTest\debug
-com.plcoding.decomposesample.test.composeApp-mergeDebugAndroidTestResources-1 C:\Users\Admin\AndroidStudioProjects\CrossQuizKMP\composeApp\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.plcoding.decomposesample.test.composeApp-mergeDebugAndroidTestResources-2 C:\Users\Admin\AndroidStudioProjects\CrossQuizKMP\composeApp\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.plcoding.decomposesample.test.composeApp-merged_res-3 C:\Users\Admin\AndroidStudioProjects\CrossQuizKMP\composeApp\build\intermediates\merged_res\debugAndroidTest
