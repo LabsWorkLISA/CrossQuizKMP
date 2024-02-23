@@ -35,6 +35,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.decompose)
             implementation(libs.coil)
+            implementation(libs.androidx.ui.tooling.preview.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)

@@ -68,212 +68,212 @@ private fun MainContent(
     ) {
         QuestionText(text = question.questionText)
         Spacer(modifier = Modifier.height(16.dp))
-        when (question) {
-            is Question.Single -> SingleAnswerList(answers = question.answers)
-            is Question.Multiple -> MultipleAnswerList(answers = question.answers)
-        }
+//        when (question) {
+//            is Question.Single -> SingleAnswerList(answers = question.answers)
+//            is Question.Multiple -> MultipleAnswerList(answers = question.answers)
+//        }
     }
 }
 
-@Composable
-private fun SingleAnswerList(answers: Answers) {
-    var currentChosenAnswer by remember { mutableStateOf(Answer.Id("-1")) }
-    when (answers) {
-        is Answers.TextItems -> {
-            LazyColumn {
-                itemsIndexed(items = answers.items) { index, item ->
-                    AnswerTextItem(
-                        item = item,
-                        isChosen = currentChosenAnswer == item.id,
-                        isSingle = true,
-                        onClick = { currentChosenAnswer = it.id },
-                    )
-                }
-            }
-        }
+//@Composable
+//private fun SingleAnswerList(answers: Answers) {
+//    var currentChosenAnswer by remember { mutableStateOf(Answer.Id("-1")) }
+//    when (answers) {
+//        is Answers.TextItems -> {
+//            LazyColumn {
+//                itemsIndexed(items = answers.items) { index, item ->
+//                    AnswerTextItem(
+//                        item = item,
+//                        isChosen = currentChosenAnswer == item.id,
+//                        isSingle = true,
+//                        onClick = { currentChosenAnswer = it.id },
+//                    )
+//                }
+//            }
+//        }
+//
+//        is Answers.ImageItems -> {
+//            LazyColumn {
+//                itemsIndexed(items = answers.items) { index, item ->
+//                    AnswerImageItem(
+//                        item = item,
+//                        isChosen = currentChosenAnswer == item.id,
+//                        isSingle = true,
+//                        onClick = {
+//                            currentChosenAnswer = it.id
+//                        },
+//                    )
+//                }
+//            }
+//        }
+//    }
+//}
 
-        is Answers.ImageItems -> {
-            LazyColumn {
-                itemsIndexed(items = answers.items) { index, item ->
-                    AnswerImageItem(
-                        item = item,
-                        isChosen = currentChosenAnswer == item.id,
-                        isSingle = true,
-                        onClick = {
-                            currentChosenAnswer = it.id
-                        },
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun MultipleAnswerList(answers: Answers) {
-    val currentChosenAnswers = remember { mutableStateListOf<Answer.Id>() }
-    when (answers) {
-        is Answers.TextItems -> {
-            LazyColumn {
-                itemsIndexed(items = answers.items) { index, item ->
-                    AnswerTextItem(
-                        item = item,
-                        isChosen = currentChosenAnswers.contains(item.id),
-                        isSingle = false,
-                        onClick = {
-                            if (currentChosenAnswers.contains(it.id)) {
-                                currentChosenAnswers.remove(it.id)
-                            } else {
-                                currentChosenAnswers.add(it.id)
-                            }
-                        },
-                    )
-                }
-            }
-        }
-
-        is Answers.ImageItems -> {
-            LazyRow {
-                itemsIndexed(items = answers.items) { index, item ->
-                    AnswerImageItem(
-                        item = item,
-                        isChosen = currentChosenAnswers.contains(item.id),
-                        isSingle = false,
-                        onClick = {
-                            if (currentChosenAnswers.contains(it.id)) {
-                                currentChosenAnswers.remove(it.id)
-                            } else {
-                                currentChosenAnswers.add(it.id)
-                            }
-                        },
-                    )
-                }
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalResourceApi::class)
-@Composable
-private fun AnswerTextItem(
-    item: Answer.Text,
-    onClick: (Answer.Text) -> Unit,
-    isChosen: Boolean,
-    isSingle: Boolean,
-) {
-    Surface(
-        shape = MaterialTheme.shapes.small,
-        border = BorderStroke(
-            width = 1.dp,
-            color = MaterialTheme.colors.primary.copy(alpha = 0.5f)
-        ),
-        modifier = Modifier.padding(vertical = 8.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .selectable(
-                    selected = isChosen,
-                    onClick = { onClick(item) },
-                )
-//                .background(answerBackgroundColor)
-                .padding(end = 16.dp, top = 20.dp, bottom = 20.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            IconToggleButton(
-                modifier = Modifier.clickable { onClick(item) },
-                checked = isChosen,
-                onCheckedChange = { },
-                content = {
-                    Icon(
-                        modifier = Modifier.clickable { onClick(item) },
-                        painter = painterResource(""
-                            // TODO how to get drawable in KMP project
-//                            when {
-//                                isChosen && !isSingle -> R.drawable.baseline_check_box_24
-//                                isChosen && isSingle -> R.drawable.baseline_check_circle_24
-//                                !isChosen && isSingle -> R.drawable.outline_circle_24
-//                                else -> R.drawable.baseline_check_box_outline_blank_24
+//@Composable
+//private fun MultipleAnswerList(answers: Answers) {
+//    val currentChosenAnswers = remember { mutableStateListOf<Answer.Id>() }
+//    when (answers) {
+//        is Answers.TextItems -> {
+//            LazyColumn {
+//                itemsIndexed(items = answers.items) { index, item ->
+//                    AnswerTextItem(
+//                        item = item,
+//                        isChosen = currentChosenAnswers.contains(item.id),
+//                        isSingle = false,
+//                        onClick = {
+//                            if (currentChosenAnswers.contains(it.id)) {
+//                                currentChosenAnswers.remove(it.id)
+//                            } else {
+//                                currentChosenAnswers.add(it.id)
 //                            }
-                        ),
-                        contentDescription = null,
-                        tint = MaterialTheme.colors.primary
-                    )
-                }
-            )
-            Text(
-                modifier = Modifier.weight(1f),
-                text = item.text
-            )
-        }
-    }
-}
+//                        },
+//                    )
+//                }
+//            }
+//        }
+//
+//        is Answers.ImageItems -> {
+//            LazyRow {
+//                itemsIndexed(items = answers.items) { index, item ->
+//                    AnswerImageItem(
+//                        item = item,
+//                        isChosen = currentChosenAnswers.contains(item.id),
+//                        isSingle = false,
+//                        onClick = {
+//                            if (currentChosenAnswers.contains(it.id)) {
+//                                currentChosenAnswers.remove(it.id)
+//                            } else {
+//                                currentChosenAnswers.add(it.id)
+//                            }
+//                        },
+//                    )
+//                }
+//            }
+//        }
+//    }
+//}
 
-@OptIn(ExperimentalResourceApi::class)
-@Composable
-private fun AnswerImageItem(
-    item: Answer.Image,
-    onClick: (Answer.Image) -> Unit,
-    isChosen: Boolean,
-    isSingle: Boolean,
-) {
+//@OptIn(ExperimentalResourceApi::class)
+//@Composable
+//private fun AnswerTextItem(
+//    item: Answer.Text,
+//    onClick: (Answer.Text) -> Unit,
+//    isChosen: Boolean,
+//    isSingle: Boolean,
+//) {
+//    Surface(
+//        shape = MaterialTheme.shapes.small,
+//        border = BorderStroke(
+//            width = 1.dp,
+//            color = MaterialTheme.colors.primary.copy(alpha = 0.5f)
+//        ),
+//        modifier = Modifier.padding(vertical = 8.dp)
+//    ) {
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .selectable(
+//                    selected = isChosen,
+//                    onClick = { onClick(item) },
+//                )
+////                .background(answerBackgroundColor)
+//                .padding(end = 16.dp, top = 20.dp, bottom = 20.dp),
+//            verticalAlignment = Alignment.CenterVertically,
+//            horizontalArrangement = Arrangement.SpaceBetween
+//        ) {
+//            IconToggleButton(
+//                modifier = Modifier.clickable { onClick(item) },
+//                checked = isChosen,
+//                onCheckedChange = { },
+//                content = {
+//                    Icon(
+//                        modifier = Modifier.clickable { onClick(item) },
+//                        painter = painterResource(""
+//                            // TODO how to get drawable in KMP project
+////                            when {
+////                                isChosen && !isSingle -> R.drawable.baseline_check_box_24
+////                                isChosen && isSingle -> R.drawable.baseline_check_circle_24
+////                                !isChosen && isSingle -> R.drawable.outline_circle_24
+////                                else -> R.drawable.baseline_check_box_outline_blank_24
+////                            }
+//                        ),
+//                        contentDescription = null,
+//                        tint = MaterialTheme.colors.primary
+//                    )
+//                }
+//            )
+//            Text(
+//                modifier = Modifier.weight(1f),
+//                text = item.text
+//            )
+//        }
+//    }
+//}
 
-    Surface(
-        shape = MaterialTheme.shapes.small,
-        border = BorderStroke(
-            width = 1.dp,
-            color = MaterialTheme.colors.primary.copy(alpha = 0.5f)
-        ),
-        modifier = Modifier.padding(vertical = 8.dp)
-    ) {
-        Column(
-            modifier = Modifier.clickable(onClick = { onClick(item) }),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            AsyncImage(
-                modifier = Modifier
-                    .size(200.dp)
-                    .padding(vertical = 10.dp),
-                contentScale = ContentScale.Crop,
-                model = item.url,
-                contentDescription = null,
-            )
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween,
-            ) {
-                IconToggleButton(
-                    modifier = Modifier.clickable { onClick(item) },
-                    checked = isChosen,
-                    onCheckedChange = { },
-                    content = {
-                        Icon(
-                            modifier = Modifier.clickable { onClick(item) },
-                            painter = painterResource(""
-                                // TODO how to get drawable in KMP project
-//                                when {
-//                                    isChosen && !isSingle -> R.drawable.baseline_check_box_24
-//                                    isChosen && isSingle -> R.drawable.baseline_check_circle_24
-//                                    !isChosen && isSingle -> R.drawable.outline_circle_24
-//                                    else -> R.drawable.baseline_check_box_outline_blank_24
-//                                }
-                            ),
-                            contentDescription = null,
-                            tint = MaterialTheme.colors.primary,
-                        )
-                    }
-                )
-                if (item.text != null) {
-                    Text(
-                        modifier = Modifier.weight(1f),
-                        text = item.text,
-                    )
-                }
-            }
-        }
-    }
-}
+//@OptIn(ExperimentalResourceApi::class)
+//@Composable
+//private fun AnswerImageItem(
+//    item: Answer.Image,
+//    onClick: (Answer.Image) -> Unit,
+//    isChosen: Boolean,
+//    isSingle: Boolean,
+//) {
+//
+//    Surface(
+//        shape = MaterialTheme.shapes.small,
+//        border = BorderStroke(
+//            width = 1.dp,
+//            color = MaterialTheme.colors.primary.copy(alpha = 0.5f)
+//        ),
+//        modifier = Modifier.padding(vertical = 8.dp)
+//    ) {
+//        Column(
+//            modifier = Modifier.clickable(onClick = { onClick(item) }),
+//            horizontalAlignment = Alignment.CenterHorizontally,
+//        ) {
+//            AsyncImage(
+//                modifier = Modifier
+//                    .size(200.dp)
+//                    .padding(vertical = 10.dp),
+//                contentScale = ContentScale.Crop,
+//                model = item.url,
+//                contentDescription = null,
+//            )
+//            Row(
+//                verticalAlignment = Alignment.CenterVertically,
+//                horizontalArrangement = Arrangement.SpaceBetween,
+//            ) {
+//                IconToggleButton(
+//                    modifier = Modifier.clickable { onClick(item) },
+//                    checked = isChosen,
+//                    onCheckedChange = { },
+//                    content = {
+//                        Icon(
+//                            modifier = Modifier.clickable { onClick(item) },
+//                            painter = painterResource(""
+//                                // TODO how to get drawable in KMP project
+////                                when {
+////                                    isChosen && !isSingle -> R.drawable.baseline_check_box_24
+////                                    isChosen && isSingle -> R.drawable.baseline_check_circle_24
+////                                    !isChosen && isSingle -> R.drawable.outline_circle_24
+////                                    else -> R.drawable.baseline_check_box_outline_blank_24
+////                                }
+//                            ),
+//                            contentDescription = null,
+//                            tint = MaterialTheme.colors.primary,
+//                        )
+//                    }
+//                )
+//                if (item.text != null) {
+//                    Text(
+//                        modifier = Modifier.weight(1f),
+//                        text = item.text,
+//                    )
+//                }
+//            }
+//        }
+//    }
+//}
 
 @Composable
 fun AsyncImage(modifier: Modifier, contentScale: ContentScale, model: String, contentDescription: Nothing?) {
