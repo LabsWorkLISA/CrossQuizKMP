@@ -1,7 +1,7 @@
 package quizlist
 
 data class QuizListItem(
-    val id: String,
+    val id: Long,
     val name: String,
     val imageUrl: String,
     // TODO separate class
