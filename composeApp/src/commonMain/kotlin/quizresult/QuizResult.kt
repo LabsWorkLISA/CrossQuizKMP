@@ -7,7 +7,6 @@ data class QuizResult(
     val maxQuestion: Int,
     val assessment: Assessment,
 ) {
-    //TODO
     enum class Assessment {
         EXCELLENT,
         GOOD,

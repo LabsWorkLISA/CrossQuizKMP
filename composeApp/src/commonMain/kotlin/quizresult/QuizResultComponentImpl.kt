@@ -14,4 +14,8 @@ class QuizResultComponentImpl: QuizResultComponent {
     override fun openFeedback() {
         TODO("Not yet implemented")
     }
+
+    override fun retry() {
+        TODO("Not yet implemented")
+    }
 }

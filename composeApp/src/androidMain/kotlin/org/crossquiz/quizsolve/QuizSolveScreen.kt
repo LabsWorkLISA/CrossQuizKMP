@@ -46,14 +46,14 @@ import quizsolve.Answers
 import quizsolve.Question
 import quizsolve.QuizSolveComponent
 
-// TODO colors and paddings in separate theme file
+// TODO ELDAR colors and paddings in separate theme file
 @Composable
 fun QuizSolveScreen(component: QuizSolveComponent) {
     val currentQuestion by component.currentQuestion.collectAsState(Dispatchers.Main.immediate)
     Surface {
         Scaffold(
             topBar = {
-                // TODO handle it in component
+                // TODO ELDAR handle it in component
                 ProgressBar(
                     progress = 0.5f, modifier = Modifier
                         .fillMaxWidth()
@@ -69,7 +69,7 @@ fun QuizSolveScreen(component: QuizSolveComponent) {
             bottomBar = {
                 BottomNavigation(
                     onNextButtonClick = { component.onNextButtonClick() },
-                    // TODO handle it in component
+                    // TODO ELDAR handle it in component
                     isEnabled = true,
                 )
             }
@@ -263,7 +263,7 @@ private fun AnswerImageItem(
             modifier = Modifier.clickable(onClick = { onClick(item) }),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            // TODO why not working
+            // TODO ELDAR why not working
 //            AsyncImage(
 //                modifier = Modifier
 //                    .size(200.dp)

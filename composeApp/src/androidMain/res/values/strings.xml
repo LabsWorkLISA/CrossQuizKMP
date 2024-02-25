@@ -11,4 +11,11 @@
     <string name="quiz_result_scores">баллов</string>
     <string name="quiz_result_main">Результаты</string>
     <string name="quiz_result_correct_answers">Правильных ответов (</string>
+    <string name="quiz_result_congratulations">Поздравляем с завершением теста</string>
+    <string name="quiz_result_bottom_result_you">У вас</string>
+    <string name="quiz_result_bottom_result_great">отличный</string>
+    <string name="quiz_result_bottom_result_good">хороший</string>
+    <string name="quiz_result_bottom_result">результат</string>
+    <string name="quiz_result_bottom_result_bad">К несчастью, вы не набрали минимальный балл</string>
+    <string name="quiz_result_error_button">Повторить</string>
 </resources>

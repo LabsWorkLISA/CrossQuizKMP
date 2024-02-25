@@ -9,4 +9,6 @@ interface QuizResultComponent {
     fun finishQuiz()
 
     fun openFeedback()
+
+    fun retry()
 }

@@ -14,6 +14,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -38,13 +39,16 @@ fun QuizResultScreen(component: QuizResultComponent) {
 
     when (result) {
         is QuizResultState.Success -> Success(
-            result as QuizResultState.Success,
+            state = result as QuizResultState.Success,
             onFeedbackClick = { component.openFeedback() },
             onFinishClick = { component.finishQuiz() },
         )
 
-        is QuizResultState.Loading -> Loading()
-        is QuizResultState.Error -> Error()
+        is QuizResultState.Loading -> Loading(modifier = Modifier)
+        is QuizResultState.Error -> Error(
+            state = result as QuizResultState.Error,
+            onRetryClick = { component.retry() },
+        )
     }
 }
 
@@ -70,13 +74,35 @@ private fun Success(
 }
 
 @Composable
-private fun Loading() {
-
+private fun Loading(modifier: Modifier) {
+    Box(modifier = modifier.fillMaxSize()) {
+        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+    }
 }
 
 @Composable
-private fun Error() {
-
+private fun Error(
+    state: QuizResultState.Error,
+    onRetryClick: () -> Unit,
+) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.align(Alignment.Center)) {
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                text = state.error,
+                textAlign = TextAlign.Center,
+            )
+            DefaultButton(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, bottom = 8.dp, top = 0.dp),
+                content = {
+                    Text(text = stringResource(R.string.quiz_result_error_button))
+                },
+                onClick = onRetryClick,
+            )
+        }
+    }
 }
 
 @Composable
@@ -112,6 +138,7 @@ private fun Result(
                     color = color,
                 )
             }
+            BottomResult(state.result.assessment)
         }
     }
 }
@@ -119,14 +146,17 @@ private fun Result(
 @Composable
 private fun BottomResult(assessment: QuizResult.Assessment) {
     when (assessment) {
-        QuizResult.Assessment.EXCELLENT -> {
-
-        }
+        QuizResult.Assessment.EXCELLENT,
         QuizResult.Assessment.GOOD -> {
-
+            Text(stringResource(R.string.quiz_result_congratulations))
+            MultiStyleTextBottomResult(
+                modifier = Modifier,
+                assessment = assessment,
+            )
         }
-        QuizResult.Assessment.BAD -> {
 
+        QuizResult.Assessment.BAD -> {
+            Text(stringResource(R.string.quiz_result_bottom_result_bad))
         }
     }
 }
@@ -153,33 +183,25 @@ private fun BottomNavigation(
     onFeedbackClick: () -> Unit,
 ) {
     Column {
-        Button(
-            shape = RoundedCornerShape(20.dp),
+        DefaultButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp, bottom = 8.dp, top = 0.dp),
-            onClick = onFeedbackClick,
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = MaterialTheme.colors.primary.copy(alpha = 0.5f),
-                contentColor = MaterialTheme.colors.onPrimary,
-            )
-        ) {
-            Text(text = stringResource(R.string.quiz_result_feedback))
-        }
+            content = {
+                Text(text = stringResource(R.string.quiz_result_feedback))
+            },
+            onClick = onFeedbackClick
+        )
 
-        Button(
-            shape = RoundedCornerShape(20.dp),
+        DefaultButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp, bottom = 8.dp, top = 0.dp),
-            onClick = onFinishClick,
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = MaterialTheme.colors.primary.copy(alpha = 0.5f),
-                contentColor = MaterialTheme.colors.onPrimary,
-            )
-        ) {
-            Text(text = stringResource(R.string.quiz_result_finish))
-        }
+            content = {
+                Text(text = stringResource(R.string.quiz_result_finish))
+            },
+            onClick = onFinishClick
+        )
     }
 }
 
@@ -227,9 +249,57 @@ private fun MultiStyleTextAnswers(
     )
 }
 
+@Composable
+private fun MultiStyleTextBottomResult(
+    modifier: Modifier,
+    assessment: QuizResult.Assessment,
+) {
+    val color = getColor(assessment)
+    Text(
+        buildAnnotatedString {
+            append(stringResource(R.string.quiz_result_bottom_result_you))
+            append(" ")
+            withStyle(style = SpanStyle(color = color)) {
+                when (assessment) {
+                    QuizResult.Assessment.EXCELLENT ->
+                        append(stringResource(R.string.quiz_result_bottom_result_great))
+
+                    QuizResult.Assessment.GOOD ->
+                        append(stringResource(R.string.quiz_result_bottom_result_good))
+
+                    QuizResult.Assessment.BAD -> Unit
+                }
+            }
+            append(" ")
+            append(stringResource(R.string.quiz_result_bottom_result))
+        },
+        textAlign = TextAlign.Center,
+        modifier = modifier,
+    )
+}
+
+@Composable
+private fun DefaultButton(
+    modifier: Modifier,
+    content: @Composable () -> Unit,
+    onClick: () -> Unit
+) {
+    Button(
+        shape = RoundedCornerShape(20.dp),
+        modifier = modifier,
+        onClick = onClick,
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = MaterialTheme.colors.primary.copy(alpha = 0.5f),
+            contentColor = MaterialTheme.colors.onPrimary,
+        )
+    ) {
+        content.invoke()
+    }
+}
+
 private fun getColor(assessment: QuizResult.Assessment): Color =
     when (assessment) {
-        // TODO add colors in UI system, change yellow color
+        // TODO ELDAR add colors in UI system, change yellow color
         QuizResult.Assessment.EXCELLENT -> Color.Green
         QuizResult.Assessment.GOOD -> Color.Yellow
         QuizResult.Assessment.BAD -> Color.Red
