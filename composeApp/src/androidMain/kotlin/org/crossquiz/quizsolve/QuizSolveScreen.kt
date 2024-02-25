@@ -362,5 +362,4 @@ private fun BottomNavigation(
     ) {
         Text(text = stringResource(R.string.next_question_button))
     }
-
 }
