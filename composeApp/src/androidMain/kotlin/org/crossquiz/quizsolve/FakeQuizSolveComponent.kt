@@ -10,7 +10,7 @@ import quizsolve.Question
 import quizsolve.Quiz
 import quizsolve.QuizSolveComponent
 
-class FakeQuiz: QuizSolveComponent {
+class FakeQuizSolveComponent: QuizSolveComponent {
     override val currentQuiz: StateFlow<Quiz?>
         get() = MutableStateFlow(null)
     override val currentQuestion: StateFlow<Question>
@@ -55,5 +55,5 @@ class FakeQuiz: QuizSolveComponent {
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun QuizSolveScreenPreview() {
-    QuizSolveScreen(FakeQuiz())
+    QuizSolveScreen(FakeQuizSolveComponent())
 }
