@@ -20,6 +20,10 @@ decompose = "2.2.2"
 kotlinxSerializationJson = "1.6.2"
 uiToolingPreviewAndroid = "1.6.1"
 material3Android = "1.2.0"
+arkivanov-essenty = "2.0.0-alpha02"
+badoo-reaktive = "2.0.1"
+arkivanov-mvikotlin = "4.0.0-alpha01"
+
 
 [libraries]
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
@@ -40,6 +44,18 @@ decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decom
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 androidx-ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "uiToolingPreviewAndroid" }
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
+# Badoo libraries
+badoo-reaktive = { module = "com.badoo.reaktive:reaktive", version.ref = "badoo-reaktive" }
+badoo-reaktive-coroutines-interop = { module = "com.badoo.reaktive:coroutines-interop", version.ref = "badoo-reaktive" }
+badoo-reaktive-testing = { module = "com.badoo.reaktive:reaktive-testing", version.ref = "badoo-reaktive" }
+arkivanov-essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "arkivanov-essenty" }
+arkivanov-mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "arkivanov-mvikotlin" }
+arkivanov-mvikotlin-main = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "arkivanov-mvikotlin" }
+arkivanov-mvikotlin-logging = { module = "com.arkivanov.mvikotlin:mvikotlin-logging", version.ref = "arkivanov-mvikotlin" }
+arkivanov-mvikotlin-timetravel = { module = "com.arkivanov.mvikotlin:mvikotlin-timetravel", version.ref = "arkivanov-mvikotlin" }
+arkivanov-mvikotlin-extensions-reaktive = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-reaktive", version.ref = "arkivanov-mvikotlin" }
+
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

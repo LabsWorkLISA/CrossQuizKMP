@@ -36,6 +36,9 @@ kotlin {
             implementation(libs.decompose)
             implementation(libs.coil)
             implementation(libs.androidx.ui.tooling.preview.android)
+            implementation(libs.badoo.reaktive)
+            implementation(libs.arkivanov.mvikotlin)
+            implementation(libs.arkivanov.mvikotlin.extensions.reaktive)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
