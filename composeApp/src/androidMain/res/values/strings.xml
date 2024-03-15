@@ -3,4 +3,19 @@
     <string name="next_question_button">Следующий вопрос</string>
     <string name="quiz_progress">%1$d\%% заданий решено</string>
     <string name="question_number">Вопрос %1$s</string>
+
+    <string name="quiz_result_finish">Завершить тест</string>
+    <string name="quiz_result_feedback">Написать отзыв на тест</string>
+    <string name="quiz_result_your_result">Ваш результат (</string>
+    <string name="quiz_result_out_of">/ %1$d)</string>
+    <string name="quiz_result_scores">баллов</string>
+    <string name="quiz_result_main">Результаты</string>
+    <string name="quiz_result_correct_answers">Правильных ответов (</string>
+    <string name="quiz_result_congratulations">Поздравляем с завершением теста</string>
+    <string name="quiz_result_bottom_result_you">У вас</string>
+    <string name="quiz_result_bottom_result_great">отличный</string>
+    <string name="quiz_result_bottom_result_good">хороший</string>
+    <string name="quiz_result_bottom_result">результат</string>
+    <string name="quiz_result_bottom_result_bad">К несчастью, вы не набрали минимальный балл</string>
+    <string name="quiz_result_error_button">Повторить</string>
 </resources>
