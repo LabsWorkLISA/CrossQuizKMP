@@ -19,6 +19,8 @@ junit = "4.13.2"
 kotlin = "1.9.22"
 extensionsComposeJetbrains = "2.2.2-compose-experimental"
 decompose = "2.2.2"
+arkivanov-mvikotlin = "4.0.0-alpha01"
+badoo = "2.1.0"
 kotlinxSerializationJson = "1.6.2"
 uiToolingPreviewAndroid = "1.6.1"
 material3Android = "1.2.0"
@@ -39,12 +41,16 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+arkivanov-mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "arkivanov-mvikotlin" }
+arkivanov-mvikotlin-extensions-reaktive = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-reaktive", version.ref = "arkivanov-mvikotlin" }
+badoo-reaktive = { module = "com.badoo.reaktive:reaktive", version.ref = "badoo" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 androidx-ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "uiToolingPreviewAndroid" }
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktorfit = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
