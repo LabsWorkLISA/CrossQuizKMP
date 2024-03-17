@@ -21,6 +21,7 @@ extensionsComposeJetbrains = "2.2.2-compose-experimental"
 decompose = "2.2.2"
 arkivanov-mvikotlin = "4.0.0-alpha01"
 badoo = "2.1.0"
+sqldelight = "2.0.1"
 kotlinxSerializationJson = "1.6.2"
 uiToolingPreviewAndroid = "1.6.1"
 material3Android = "1.2.0"
@@ -52,6 +53,10 @@ ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktorfit = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
 
+squareup-sqldelight-gradle-plugin = { module = "app.cash.sqldelight:gradle-plugin", version.ref = "sqldelight" }
+squareup-sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
+squareup-sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
@@ -59,3 +64,4 @@ jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 ktorfit = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit" }
+squareup-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }

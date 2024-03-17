@@ -1,4 +1,6 @@
-//package com.example.quiz.database
-//
-//class DefaultQuizSharedDatabase(driver: SqlDr) {
-//}
+package com.example.quiz.database
+
+import app.cash.sqldelight.db.SqlDriver
+
+class DefaultQuizSharedDatabase(driver: SqlDriver) {
+}

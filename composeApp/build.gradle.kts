@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ktorfit)
+    alias(libs.plugins.squareup.sqldelight)
 }
 
 kotlin {
@@ -39,6 +40,8 @@ kotlin {
             implementation(libs.badoo.reaktive)
             implementation(libs.arkivanov.mvikotlin)
             implementation(libs.arkivanov.mvikotlin.extensions.reaktive)
+            implementation(libs.squareup.sqldelight.android.driver)
+            implementation(libs.squareup.sqldelight.sqlite.driver)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
