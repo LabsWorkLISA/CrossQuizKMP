@@ -29,9 +29,6 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import org.crossquiz.R
-import quizresult.QuizResult
-import quizresult.QuizResultComponent
-import quizresult.QuizResultState
 
 @Composable
 fun QuizResultScreen(component: QuizResultComponent) {

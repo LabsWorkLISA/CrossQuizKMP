@@ -4,9 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import quizresult.QuizResult
-import quizresult.QuizResultComponent
-import quizresult.QuizResultState
 
 class FakeQuizResultComponentSuccess : QuizResultComponent {
 

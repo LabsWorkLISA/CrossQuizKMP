@@ -1,4 +1,4 @@
-package quizresult
+package org.crossquiz.quizresult
 
 import kotlinx.coroutines.flow.StateFlow
 
