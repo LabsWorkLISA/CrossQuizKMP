@@ -1,4 +1,4 @@
-package org.crossquiz.quizresult
+package quizresult
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box

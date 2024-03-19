@@ -1,4 +1,4 @@
-package org.crossquiz.quizsolve
+package quizsolve
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -41,10 +41,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import org.crossquiz.R
-import quizsolve.Answer
-import quizsolve.Answers
-import quizsolve.Question
-import quizsolve.QuizSolveComponent
 
 // TODO ELDAR colors and paddings in separate theme file
 @Composable

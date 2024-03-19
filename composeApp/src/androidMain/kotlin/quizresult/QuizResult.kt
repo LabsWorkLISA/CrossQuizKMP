@@ -1,4 +1,4 @@
-package org.crossquiz.quizresult
+package quizresult
 
 data class QuizResult(
     val currentScore: Int,

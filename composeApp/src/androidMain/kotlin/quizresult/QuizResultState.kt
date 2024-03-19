@@ -1,4 +1,4 @@
-package org.crossquiz.quizresult
+package quizresult
 
 sealed interface QuizResultState {
 

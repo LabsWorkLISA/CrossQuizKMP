@@ -1,4 +1,4 @@
-package org.crossquiz.quizresult
+package quizresult
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

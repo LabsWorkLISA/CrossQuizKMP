@@ -1,14 +1,9 @@
-package org.crossquiz.quizsolve
+package quizsolve
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import quizsolve.Answer
-import quizsolve.Answers
-import quizsolve.Question
-import quizsolve.Quiz
-import quizsolve.QuizSolveComponent
 
 class FakeQuizSolveComponent: QuizSolveComponent {
     override val currentQuiz: StateFlow<Quiz?>
